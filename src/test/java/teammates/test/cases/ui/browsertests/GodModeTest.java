@@ -92,7 +92,7 @@ public class GodModeTest extends BaseUiTestCase {
             // either does not exist or has the wrong content
             verifyHtml(OUTPUT_FILENAME, isPart);
             signalFailureToDetectException();
-        } catch (Exception|AssertionError e) {
+        } catch (IOException|AssertionError e) {
             ignoreExpectedException();
         }
         
@@ -115,7 +115,7 @@ public class GodModeTest extends BaseUiTestCase {
         
     }
 
-    private void verifyHtml(String filePath, boolean isPart) {
+    private void verifyHtml(String filePath, boolean isPart) throws IOException {
         if (isPart) {
             page.verifyHtmlMainContent(filePath);
         } else {
